@@ -1,4 +1,4 @@
-import {postType} from './postType'
+import { postType } from "./postType";
 
-const schemas = [postType]
-export { schemas }
+const schemas = [postType];
+export { schemas };

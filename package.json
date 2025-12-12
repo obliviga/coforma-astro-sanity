@@ -19,11 +19,20 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^5.9.1",
     "dotenv": "^17.2.3",
+    "eslint-plugin-astro": "^1.5.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-is": "^19.2.3",
     "sanity": "^3.91.0",
     "sharp": "^0.34.3",
     "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint": "^9.39.1",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
