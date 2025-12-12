@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.3.0",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.4.1",
@@ -18,6 +17,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.9.1",
+    "astro-portabletext": "^0.12.0",
     "dotenv": "^17.2.3",
     "eslint-plugin-astro": "^1.5.0",
     "react": "^19.2.3",

@@ -1,14 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { sanityClient } from "sanity:client";
+import type { Post } from "../../env.d.ts";
+import { urlForImage } from "../../sanity/urlForImage";
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Header from "../../components/Header.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+const posts: Post[] = await sanityClient.fetch(
+  `*[_type == "post"] | order(publishedAt desc)`,
 );
 ---
 
@@ -94,18 +95,18 @@ const posts = (await getCollection("blog")).sort(
           {
             posts.map((post) => (
               <li>
-                <a href={`/blog/${post.id}/`}>
-                  {post.data.heroImage && (
-                    <Image
+                <a href={`/blog/${post.slug.current}/`}>
+                  {post.image && (
+                    <img
                       width={720}
                       height={360}
-                      src={post.data.heroImage}
+                      src={urlForImage(post.image).url()}
                       alt=""
                     />
                   )}
-                  <h4 class="title">{post.data.title}</h4>
+                  <h4 class="title">{post.title}</h4>
                   <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
+                    <FormattedDate date={new Date(post.publishedAt)} />
                   </p>
                 </a>
               </li>
